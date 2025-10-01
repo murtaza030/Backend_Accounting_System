@@ -1,11 +1,8 @@
-// server.js
-const http = require("http");
+// index.js
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello World from Node.js!");  
-});
-
-server.listen(3000, () => {
-  console.log("Server running at http://localhost:3000/");
-});
+module.exports = async function (req, res) {
+  res.json({
+    message: "Hello World from Appwrite Function 🚀",
+    time: new Date().toISOString(),
+  });
+};
