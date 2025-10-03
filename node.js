@@ -1,8 +1,12 @@
-// index.js
-
 module.exports = async function (req, res) {
-  res.json({
-    message: "Hello World from Appwrite Function 🚀",
-    time: new Date().toISOString(),
-  });
+  try {
+    const body = req.body || {};
+    res.json({
+      message: "Function ran successfully ✅",
+      path: req.path,
+      input: body
+    });
+  } catch (err) {
+    res.json({ error: true, message: err.message });
+  }
 };
